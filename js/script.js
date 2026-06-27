@@ -129,10 +129,9 @@ async function submitOrder() {
         alert("جاري رفع البيانات والإيصال... انتظر لحظة");
 
         try {
-            // إضافة mode: 'no-cors' هتمنع المتصفح من إظهار الخطأ الوهمي
             await fetch('https://script.google.com/macros/s/AKfycbygH3cNXT5mPHQ2Wqjiw0yRJ3-C89ogmWz5ZgK3wIO9vJ43B0BSpSZWjn2BKRPvmA6s8Q/exec', {
                 method: 'POST',
-                mode: 'no-cors', // السر هنا!
+                mode: 'no-cors',
                 headers: {
                     "Content-Type": "text/plain;charset=utf-8"
                 },
@@ -151,10 +150,10 @@ async function submitOrder() {
                 })
             });
 
-            // لو وصل هنا يبقى رفع بنجاح بدون خطأ أحمر
-            alert("تم إرسال الطلب والإيصال بنجاح!");
+            // لو وصل هنا يبقى رفع بنجاح 
+            alert("تم إرسال الطلب بنجاح! سيتم تحويلك للواتساب لتأكيد التفعيل...");
             
-            // فتح الواتساب
+            // تجهيز رسالة الواتساب
             const message = `*طلب حجز جديد (تيم النزلاوي)* 🚀\n\n` +
                             `🌐 الشركة: ${currentOrder.networkName}\n` +
                             `📦 الباقة: ${currentOrder.packageName}\n` +
@@ -165,7 +164,8 @@ async function submitOrder() {
                             `🔢 آخر 4 أرقام: ${transferCode}\n` +
                             `📝 ملاحظات: ${notes}`;
 
-            window.open(`https://wa.me/201121844925?text=${encodeURIComponent(message)}`, '_blank');
+            // الحل الإجباري لتحويل الصفحة فوراً للواتساب بدون فتح تاب جديدة (عشان نتخطى الحظر)
+            window.location.href = `https://wa.me/201121844925?text=${encodeURIComponent(message)}`;
             
         } catch (error) {
             console.error("خطأ:", error);
