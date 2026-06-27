@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تيم النزلاوي | احجز باقتك باحترافية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- تأثيرات الإضاءة في الخلفية -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <div class="container">
+        <!-- الهيدر -->
+        <header>
+            <div class="logo-wrapper">
+                <i class="fa-solid fa-crown logo-icon"></i>
+                <h1 class="logo-text">تيم النزلاوي</h1>
+            </div>
+            <p class="subtitle">عالم العروض .. باقتك في أمان وتفعيل في ثواني</p>
+        </header>
+
+        <!-- معلومات الدعم الفني -->
+        <div class="glass-panel support-panel">
+        <div class="support-badges">
+            <span class="premium-badge"><i class="fa-solid fa-bolt"></i> تفعيل فوري</span>
+                <span class="premium-badge green"><i class="fa-solid fa-shield-halved"></i> ضمان 100%</span>
+                </div>
+                <div class="contact-buttons">
+                <a href="https://wa.me/201121844925" target="_blank" class="contact-btn">
+            <i class="fa-brands fa-whatsapp"></i> تواصل مع تيم النزلاوي
+            </a>
+        </div>
+        </div>
+
+        <!-- شريط التقدم الدائري (Step Tracker) -->
+        <div class="step-tracker">
+            <div class="step-item active" id="tracker-1">
+                <div class="step-circle">1</div>
+                <span class="step-label">الشركة</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item" id="tracker-2">
+                <div class="step-circle">2</div>
+                <span class="step-label">الباقة</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item" id="tracker-3">
+                <div class="step-circle">3</div>
+                <span class="step-label">الدفع</span>
+            </div>
+        </div>
+
+        <!-- ================= الخطوة 1 ================= -->
+        <div id="step-1" class="glass-panel main-card">
+            <h2 class="card-title">اختر شبكتك</h2>
+            <div class="networks-grid">
+                <div class="network-card vodafone" onclick="selectNetwork('vodafone', 'فودافون', '#e60000')">
+                    <img src="images/Vodafone_Egypt-Logo.wine.png" alt="Vodafone">
+                    <span>فودافون</span>
+                </div>
+                <div class="network-card etisalat" onclick="selectNetwork('etisalat', 'اتصالات', '#00a300')">
+                    <img src="images/Etisalat_eand_Logo_EN.svg.png" alt="Etisalat">
+                    <span>اتصالات</span>
+                </div>
+                <div class="network-card we" onclick="selectNetwork('we', 'وي', '#5e2082')">
+                    <img src="images/We_logo.svg.png" alt="WE">
+                    <span>وي</span>
+                </div>
+                <div class="network-card orange" onclick="selectNetwork('orange', 'أورانج', '#ff6600')">
+                    <img src="images/Orange-Logo.png" alt="Orange">
+                    <span>أورانج</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= الخطوة 2 ================= -->
+        <div id="step-2" class="glass-panel main-card hidden">
+            <h2 class="card-title">اختر الباقة المناسبة</h2>
+            <div id="packages-list" class="packages-container">
+                <!-- الكروت من الجافاسكريبت -->
+            </div>
+            <button class="btn-secondary mt-4" onclick="goToStep(1)"><i class="fa-solid fa-arrow-right"></i> رجوع لاختيار الشركة</button>
+        </div>
+
+        <!-- ================= الخطوة 3 ================= -->
+        <div id="step-3" class="glass-panel main-card hidden">
+            
+            <div class="summary-card">
+                <div class="summary-icon"><i class="fa-solid fa-receipt"></i></div>
+                <div class="summary-details">
+                    <p class="summary-net" id="summary-network"></p>
+                    <h3 class="summary-pkg" id="summary-package"></h3>
+                </div>
+                <div class="summary-price" id="summary-price"></div>
+            </div>
+
+            <div class="form-group">
+                <h3 class="group-title"><i class="fa-solid fa-user-pen"></i> بيانات العميل</h3>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" id="client-name" class="premium-input" placeholder="الاسم بالكامل">
+                </div>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-phone input-icon"></i>
+                    <input type="tel" id="client-phone" class="premium-input ltr" placeholder="رقم التفعيل (مثال: 01012345678)">
+                </div>
+            </div>
+
+            <div class="info-alert">
+                <h4><i class="fa-solid fa-circle-info"></i> خطوات التفعيل:</h4>
+                <p>1. تأكيد الطلب &larr; 2. استلام الكود &larr; 3. التفعيل الفوري عبر الواتساب.</p>
+            </div>
+
+            <div class="form-group">
+                <h3 class="group-title"><i class="fa-solid fa-wallet"></i> طريقة الدفع</h3>
+                <div class="payment-methods">
+    <label class="payment-option">
+        <input type="radio" name="payment" value="كاش" checked>
+        <div class="payment-box">
+            <i class="fa-solid fa-mobile-screen-button text-green"></i>
+            <div class="payment-info">
+                <span class="pay-name">محفظة كاش</span>
+                <span class="pay-number">01032317959</span>
+            </div>
+        </div>
+    </label>
+    <label class="payment-option">
+        <input type="radio" name="payment" value="إنستا باي">
+        <div class="payment-box">
+            <i class="fa-solid fa-building-columns text-blue"></i>
+            <div class="payment-info">
+                <span class="pay-name">إنستا باي</span>
+                <span class="pay-number">01004432380</span>
+            </div>
+        </div>
+    </label>
+</div>
+
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-hashtag input-icon"></i>
+                    <input type="text" id="transfer-code" class="premium-input ltr" placeholder="آخر 4 أرقام من التحويل">
+                </div>
+                <div class="input-wrapper align-top">
+                    <i class="fa-solid fa-comment-dots input-icon mt-3"></i>
+                    <textarea id="transfer-notes" class="premium-input" placeholder="ملاحظات إضافية (اختياري)" rows="2"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h3 class="group-title"><i class="fa-solid fa-image"></i> إيصال التحويل</h3>
+                <label class="upload-area">
+                    <input type="file" id="receipt-file" accept="image/*" onchange="updateFileName(this)">
+                    <div class="upload-content">
+                        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                        <span id="file-name-display">اضغط لرفع صورة الإيصال</span>
+                    </div>
+                </label>
+            </div>
+
+            <button class="btn-primary" onclick="submitOrder()">
+                <span>إرسال وتأكيد الحجز</span>
+                <i class="fa-brands fa-whatsapp"></i>
+            </button>
+            <button class="btn-secondary" onclick="goToStep(2)"><i class="fa-solid fa-arrow-right"></i> رجوع للباقات</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
